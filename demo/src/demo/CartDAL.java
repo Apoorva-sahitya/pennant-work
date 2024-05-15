@@ -43,7 +43,7 @@ public class CartDAL implements CategoryDAO {
 				ResultSet rs = stmt.executeQuery();
 				if (rs.next()) {
 					products product = new products(rs.getInt("p_id"), rs.getString("name"), rs.getInt("price"),
-							rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"));
+							rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"), rs.getInt("discount"));
 					cartProducts.add(product);
 				}
 			}

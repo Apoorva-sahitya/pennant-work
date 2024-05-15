@@ -22,7 +22,7 @@ public class CategoryDAL implements CategoryDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				products product = new products(rs.getInt("p_id"), rs.getString("name"), rs.getInt("price"),
-						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"));
+						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"), rs.getInt("discount"));
 				productList.add(product);
 				System.out.println("Product added: " + product);
 			}
@@ -58,7 +58,7 @@ public class CategoryDAL implements CategoryDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				products product = new products(rs.getInt("p_id"), rs.getString("name"), rs.getInt("price"),
-						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"));
+						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"), rs.getInt("discount"));
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -95,7 +95,7 @@ public class CategoryDAL implements CategoryDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				products product = new products(rs.getInt("p_id"), rs.getString("name"), rs.getInt("price"),
-						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"));
+						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"), rs.getInt("discount"));
 				productList.add(product);
 				System.out.println("Product added: " + product.getpname());
 			}

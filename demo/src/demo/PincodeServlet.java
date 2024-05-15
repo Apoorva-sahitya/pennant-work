@@ -14,23 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 public class PincodeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String pincode = request.getParameter("pincode"); // Get the entered pincode
+		String pincode = request.getParameter("pincode");
 		List<String> cartProductIds = (List<String>) request.getSession().getAttribute("cart");
 
-		// Validate pincode against the i186_pincodes table
 		PincodeDAL pincodeDAL = new PincodeDAL();
-		boolean isServiceable = pincodeDAL.isServiceable(pincode, cartProductIds);
-		System.out.println("method call");
-		if (isServiceable) {
-			// Proceed to checkout
-			System.out.println("Pincode is not serviceable. Showing alert.");
-			response.getWriter().write("false");
-
+		int nonServiceableProductId = pincodeDAL.isServiceable(pincode, cartProductIds);
+		if (nonServiceableProductId != 0) {
+			// Return the non-serviceable product ID as response
+			response.getWriter().write(String.valueOf(nonServiceableProductId));
 		} else {
-			// Display alert and stay on cart page
-			System.out.println("Pincode is serviceable. Redirecting to checkout.");
-			response.sendRedirect("Checkout.jsp");
-
+			// Return '0' when pincode is serviceable
+			response.getWriter().write("0");
 		}
 	}
+
 }

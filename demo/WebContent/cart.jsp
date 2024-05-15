@@ -33,18 +33,19 @@
             })
             .then(response => response.text())
             .then(result => {
-                if (result === 'false') {
-                    console.log("js Pincode is serviceable. Redirecting to checkout.");
+                if (result === '0') {
+                    console.log("Pincode is serviceable. Redirecting to checkout.");
                     // Proceed to checkout
                     window.location.href = 'Checkout.jsp';
                 } else {
                     console.log("Pincode is not serviceable. Showing alert.");
-                    // Display alert and stay on cart page
-                    alert('js not serviceable region. Kindly remove the frock from the cart.');
+                    // Display alert with the non-serviceable product ID
+                    alert("Product with ID " + result + " is not serviceable in this region. Kindly remove it from the cart.");
                 }
             });
         }
     }
+
     </script>
 </head>
 <body>

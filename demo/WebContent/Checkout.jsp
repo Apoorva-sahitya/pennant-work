@@ -87,6 +87,8 @@
             	<th>Product Id</th>
                 <th>Product Name</th>
                 <th>Price</th>
+                <th>Discount</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -106,6 +108,8 @@
                 <td><%= product.getpid() %></td>   	
                 <td><%= product.getpname() %></td>
                 <td><%= product.getprice() %></td>
+                <td><%= product.getdiscount() %></td>
+                
             </tr>
             <%
                 }

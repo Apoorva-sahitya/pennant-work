@@ -22,7 +22,7 @@ public class ProductDAL implements ProductDAO {
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				products product = new products(rs.getInt("p_id"), rs.getString("name"), rs.getInt("price"),
-						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"));
+						rs.getString("image"), rs.getInt("hsn"), rs.getInt("cat_id"), rs.getInt("discount"));
 				products.add(product);
 			}
 		} catch (SQLException e) {
