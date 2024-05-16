@@ -122,4 +122,10 @@ public class CategoryDAL implements CategoryDAO {
 		return null;
 	}
 
+	@Override
+	public int getGstRateByHsnCode(int hsnCode) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -87,28 +87,34 @@
             	<th>Product Id</th>
                 <th>Product Name</th>
                 <th>Price</th>
+                <th>HSN Code</th>                
                 <th>Discount</th>
+                <th>GST Rate</th>
                 
             </tr>
         </thead>
         <tbody>
             <%
-                List<String> cart = (List<String>) session.getAttribute("cart");
+               /* List<String> cart = (List<String>) session.getAttribute("cart");
                 if (cart == null) {
                     cart = new ArrayList<>();
                 }
                 CartDAL cartDAL = new CartDAL();
                 List<products> cartProducts = cartDAL.getCartProducts(cart);
-                int totalPrice = 0; // Initialize total price
-
+                 // Initialize total price */
+                List<products> cartProducts =(List<products>) request.getAttribute("checkoutProducts");
+                int totalPrice = 0;
                 for (products product : cartProducts) {
                     totalPrice += product.getprice(); // Calculate total price
             %>
             <tr>
                 <td><%= product.getpid() %></td>   	
                 <td><%= product.getpname() %></td>
-                <td><%= product.getprice() %></td>
+				<td><%= product.getprice() %></td>
+                <td><%= product.gethsn_code() %></td>
                 <td><%= product.getdiscount() %></td>
+                <td><%= product.getGstRate() %></td> <!-- Display GST rate -->
+                
                 
             </tr>
             <%

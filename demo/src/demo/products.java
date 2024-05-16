@@ -8,6 +8,7 @@ public class products {
 	public int hsn_code;
 	public int cat_id;
 	public int disc;
+	private int gstRate;
 
 	public products(int pid, String pname, int price, String i, int hsn_code, int cat_id, int disc) {
 		this.pid = pid;
@@ -82,5 +83,13 @@ public class products {
 
 	public int getdiscount() {
 		return disc;
+	}
+
+	public void setGstRate(int gstRate) {
+		this.gstRate = gstRate;
+	}
+
+	public int getGstRate() {
+		return gstRate;
 	}
 }

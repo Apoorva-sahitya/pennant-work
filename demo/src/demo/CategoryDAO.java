@@ -11,4 +11,8 @@ public interface CategoryDAO {
 
 	List<products> getCartProducts(List<String> productIds);
 
+	int getGstRateByHsnCode(int hsnCode);
+
+	int getShippingChargesByPrice(int p);
+
 }

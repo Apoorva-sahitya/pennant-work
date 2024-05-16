@@ -61,4 +61,10 @@ public class CartDAL implements CategoryDAO {
 		return cartProducts;
 	}
 
+	@Override
+	public int getGstRateByHsnCode(int hsnCode) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

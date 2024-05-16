@@ -22,8 +22,19 @@ public class CheckoutServlet extends HttpServlet {
 			cart = new ArrayList<>();
 		}
 
-		CategoryDAO checkoutDAL = new CartDAL(); // Using the interface pointer
+		CategoryDAO checkoutDAL = new CheckoutDAL(); // Using the interface pointer
 		List<products> checkoutProducts = checkoutDAL.getCartProducts(cart);
+		for (products product : checkoutProducts) {
+			int hsnCode = product.gethsn_code(); // Replace with your actual method
+			int p = product.getprice();
+			int gstRate = checkoutDAL.getGstRateByHsnCode(hsnCode);
+			System.out.println("gst by hsn called");
+			product.setGstRate(gstRate);
+			int ship = checkoutDAL.getShippingChargesByPrice(p);
+			System.out.println("Product ID: " + product.getpid() + ", HSN Code: " + hsnCode + ", GST Rate: "
+					+ product.getGstRate() + ", price " + p);
+		}
+
 		int totalPrice = calculateTotalPrice(checkoutProducts);
 
 		request.setAttribute("checkoutProducts", checkoutProducts);
