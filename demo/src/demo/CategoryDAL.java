@@ -128,4 +128,10 @@ public class CategoryDAL implements CategoryDAO {
 		return 0;
 	}
 
+	@Override
+	public int getShippingChargesByPrice(int p) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -31,8 +31,9 @@ public class CheckoutServlet extends HttpServlet {
 			System.out.println("gst by hsn called");
 			product.setGstRate(gstRate);
 			int ship = checkoutDAL.getShippingChargesByPrice(p);
+			product.setShip(ship);
 			System.out.println("Product ID: " + product.getpid() + ", HSN Code: " + hsnCode + ", GST Rate: "
-					+ product.getGstRate() + ", price " + p);
+					+ product.getGstRate() + ", price " + p + "shipping carges :" + product.getShip());
 		}
 
 		int totalPrice = calculateTotalPrice(checkoutProducts);

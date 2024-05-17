@@ -93,11 +93,11 @@ public class CheckoutDAL implements CategoryDAO {
 			System.out.println("Executing query: " + sql); // Print the query
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
-				int gstRate = rs.getInt("gst");
-				System.out.println("Shipping rate for price " + p + ": " + gstRate);
-				return gstRate;
+				int ship = rs.getInt("charges");
+				System.out.println("Shipping rate for price " + p + ": " + ship);
+				return ship;
 			} else {
-				System.out.println("No GST rate found for HSN code " + p);
+				System.out.println("No ship charges are found for given price " + p);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

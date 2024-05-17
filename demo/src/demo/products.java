@@ -9,6 +9,9 @@ public class products {
 	public int cat_id;
 	public int disc;
 	private int gstRate;
+	private int ship;
+	private double actual_gst;
+	public double actual_price;
 
 	public products(int pid, String pname, int price, String i, int hsn_code, int cat_id, int disc) {
 		this.pid = pid;
@@ -91,5 +94,29 @@ public class products {
 
 	public int getGstRate() {
 		return gstRate;
+	}
+
+	public void setShip(int ship) {
+		this.ship = ship;
+	}
+
+	public int getShip() {
+		return ship;
+	}
+
+	public void setActualGst(double actual_gst) {
+		this.actual_gst = actual_gst;
+	}
+
+	public double getActualGst() {
+		return actual_gst;
+	}
+
+	public void setActualPrice(double actual_price) {
+		this.actual_price = actual_price;
+	}
+
+	public double getActualPrice() {
+		return actual_price;
 	}
 }

@@ -67,4 +67,10 @@ public class CartDAL implements CategoryDAO {
 		return 0;
 	}
 
+	@Override
+	public int getShippingChargesByPrice(int p) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

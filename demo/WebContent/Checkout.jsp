@@ -90,6 +90,7 @@
                 <th>HSN Code</th>                
                 <th>Discount</th>
                 <th>GST Rate</th>
+                <th>Shipping Charges</th>
                 
             </tr>
         </thead>
@@ -113,9 +114,8 @@
 				<td><%= product.getprice() %></td>
                 <td><%= product.gethsn_code() %></td>
                 <td><%= product.getdiscount() %></td>
-                <td><%= product.getGstRate() %></td> <!-- Display GST rate -->
-                
-                
+                <td><%= product.getGstRate() %></td>
+                <td><%= product.getShip() %></td>
             </tr>
             <%
                 }
